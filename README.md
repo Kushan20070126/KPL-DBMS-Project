@@ -100,28 +100,34 @@ Kurunegala Plantations Limited (KPL) is a government-owned company in Sri Lanka 
 ## Sample SQL Queries
 
 -- Total batch quantity per estate
+```
 SELECT Estate.EstateName, SUM(Batch.Quantity) AS TotalQuantity
 FROM Estate
 JOIN Batch ON Estate.EstateID = Batch.EstateID
 GROUP BY Estate.EstateName;
+```
 
 -- Orders with total price
+```
 SELECT [Order].OrderID, Buyer.BuyerName, SUM(OrderDetail.QuantityOrdered * OrderDetail.PricePerUnit) AS TotalPrice
 FROM [Order]
 JOIN Buyer ON [Order].BuyerID = Buyer.BuyerID
 JOIN OrderDetail ON [Order].OrderID = OrderDetail.OrderID
 GROUP BY [Order].OrderID, Buyer.BuyerName;
+```
 
 -- Shipments per transporter
+```
 SELECT Transporter.TransporterName, COUNT(Shipment.ShipmentID) AS TotalShipments
 FROM Transporter
 JOIN Shipment ON Transporter.TransporterID = Shipment.TransporterID
 GROUP BY Transporter.TransporterName;
+```
 
 ---
 
 ## Project Structure
-
+```
 kpl-coconut-db/
 │
 ├── 01_create_tables.sql
@@ -130,4 +136,5 @@ kpl-coconut-db/
 ├── README.md
 └── docs/
 ├── ER
+```
 
