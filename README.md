@@ -138,3 +138,6 @@ kpl-coconut-db/
 ├── ER
 ```
 
+## License
+
+This project is licensed under the MIT License. See the [MIT](LICENSE) file for details.
